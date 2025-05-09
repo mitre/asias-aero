@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head><title>Testing embedding</title></head>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://foundry.asias.aero http://localhost:3050;">
+        <title>Testing embedding</title>
+    </head>
     <body>
         This is not a header<br>
         <iframe src="https://foundry.asias.aero/slate/app/ri.slate.main.document.341acf1a-29ea-46f4-a531-4790ae220047/home?embedded=true"></iframe>
