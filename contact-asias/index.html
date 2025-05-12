@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+    <link rel="icon" href="/logo.webp">
+    <title>Contact ASIAS</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  </head>
+  <body id="top">
+    <!-- start header -->
+    <header class="header">
+      <div class="top-header">
+        <a class="logo-title" href="/">
+          <img src="/logo.webp" alt="ASIAS Logo" class="logo">
+          <h1 class="title">Aviation Safety Information Analysis and Sharing</h1>
+        </a>
+        <div class="top-buttons">
+          <a href="/login" class="btn-asias-link-outline">Stakeholder Log In</a>
+          <a href="/join-asias-application-form" class="btn-asias-link">Join ASIAS</a>
+        </div>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li class="dropdown">
+            <a href="/about-mission" class="dropbtn">About</a>
+            <div class="dropdown-content">
+              <a href="/about-mission">Mission</a>
+              <a href="/about-stakeholders">Stakeholders</a>
+              <a href="/about-history">History</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/join-asias" class="dropbtn">Join ASIAS</a>
+            <div class="dropdown-content join">
+              <a href="/join-asias">Why Join ASIAS</a>
+              <a href="/join-asias-application-form">Application Form</a>
+            </div>
+          </li>
+          <li><a href="/news-and-insights">News & Insights</a></li>
+          <li><a href="/contact-asias" class="current">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- end header -->
+    <main>
+      <div class="page-banner">
+        <img src="/slice5.webp" alt="ASIAS Banner"/>
+        <div class="page-title">
+          <h1>Contact Us</h1>
+        </div>
+      </div>
+      <div class="main-content">
+        <div id="text">
+          <p>
+            <strong>If you are a current ASIAS stakeholder</strong>, please direct questions or comments to your organization's existing ASIAS contact.
+          </p>
+          <p>
+            Not sure if your organization is already a stakeholder? Check in the <a class="link-asias" href="https://portal.asias.aero/home">full ASIAS stakeholder list.</a>
+          </p>
+          <p>
+            For all other inquiries, please use the form below to send your questions or comments to ASIAS.
+          </p>
+        </div>
+      </div>
+      <!-- start form -->
+      <form id="contact" class="contact-us">
+        <p>
+          Required fields are marked with an asterisk (*).
+        </p>
+        <div class="name-fields">
+          <div id="first-name-field">
+            <label for="first-name">First name *</label><br>
+            <input type="text" required="true" id="first-name" name="first-name">
+          </div>
+          <div id="last-name-field">
+            <label for="last-name">Last name *</label><br>
+            <input type="text" required="true" id="last-name" name="last-name">
+          </div>
+        </div>
+        <br>
+        <label for="email">Email address *</label><br>
+        <input type="email" required="true" id="email" name="email">
+        <br><br>
+        <label for="org-name">Organization name</label><br>
+        <input type="text" id="org-name" name="org-name">
+        <fieldset>
+          <legend>What is your inquiry about?</legend>
+          <div class="option">
+            <input type="checkbox" name="inquiry" id="option1" value="stakeholder-status">
+            <label for="option1">ASIAS Stakeholder Status</label>
+          </div>
+          <div class="option">
+            <input type="checkbox" name="inquiry" id="option2" value="media-inquiry">
+            <label for="option2">Media inquiry</label>
+          </div>
+          <div class="option">
+            <input type="checkbox" name="inquiry" id="option3" value="collaboration-opportunity">
+            <label for="option3">Collaboration opportunity</label>
+          </div>
+        </fieldset>
+        <label for="message">Enter your message here: *</label><br>
+        <textarea required="true" id="message" name="message" maxlength="5000"></textarea>
+        <div class="counter">
+          <span id="char-count">5000</span> character limit
+        </div>
+        <button class="btn-asias" type="submit" onClick="sendData()">Send Message</button>
+      </form>
+      <!-- end form -->
+    </main>
+
+    <script>
+      const textarea = document.getElementById('message');
+      const charCount = document.getElementById('char-count');
+
+      // Add an event listener to update the counter as the user types
+      // TODO: Uncomment if it doesn't freak out screenreader
+      // textarea.addEventListener('input', () => {
+      //   const textLength = textarea.value.length;
+      //   charCount.textContent = 5000-textLength; // Update the current character count
+      // });
+
+      const form = document.querySelector("#contact");
+
+      async function sendData() {
+
+        if (!form.checkValidity()) {
+          return;
+        }
+        // Associate the FormData object with the form element
+        let formData = new FormData(form);
+
+        let object = {};
+        formData.forEach((value, key) => object[key] = value);
+        formData = JSON.stringify(object);
+
+        let headers = { 'content-type': 'application/json' }; // this needs the BEARER token to talk to Slate backend
+
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: headers,
+            body: formData,
+          });
+
+          let responseText = await response.json();
+          const pageText = document.querySelector("#text");
+          pageText.textContent = responseText.response;
+          form.setAttribute('hidden', 'true');
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    </script>
+
+    <!-- start footer -->
+    <div class="return-to-top">
+      <a href="#top" class="link-asias">Return to top</a>
+    </div>
+    <footer>
+      <div class="footer-top">
+        <a href="/" class="footer-link">Home</a>
+        <a href="/about-mission" class="footer-link">About</a>
+        <a href="/join-asias" class="footer-link">Join ASIAS</a>
+        <a href="/news-and-insights" class="footer-link">News & Insights</a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <img src="/logo.webp" alt="ASIAS Logo" class="footer-logo">
+          <p>
+            © 2025 The MITRE Corporation. All Rights Reserved.<br>
+            Approved for Public Release, case 25-1353.<br>
+            For more information, <a href="/terms">click here.</a>
+          </p>
+        </div>
+        <div class="footer-right">
+          <a href="/login" class="btn-asias-link-outline">Stakeholder Log In</a>
+          <a href="/join-asias-application-form" class="btn-asias-link">Join ASIAS</a>
+          <a href="/contact-asias">Contact Us</a>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+  </body>
+</html>
