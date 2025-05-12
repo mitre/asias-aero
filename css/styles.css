@@ -6,6 +6,7 @@
   --blue-focus: #2491ff;
   --grey-default: #dddddd;
   --grey-lighter: #eeeeee;
+  --white-default: #ffffff;
 }
 
 html {
@@ -13,10 +14,401 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   color: var(--black-default);
+  background: var(--white-default);
   font-family: Arial, sans-serif;
+  padding: 0;
 }
+
+header {
+    background-color: white;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    xposition: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+header #asias-logo { 
+    display: inline-block;
+    height: 100px;
+    width: 110px
+}
+
+header h1 {
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center
+}
+
+header button {
+    background: var(--blue-default);
+    color: var(--white-default);
+    font-weight: 600;
+    position: absolute;
+    top: 2rem;
+    right: 1rem
+}
+
+@media all and (min-width:650px) {
+    header h1 {
+        font-size: 1.2rem
+    } 
+}
+
+header nav {
+    border-bottom: 1px solid #222;
+    border-top: 2px solid #222;
+    margin: 1rem auto 0 auto;
+    padding: 0
+}
+
+header nav .text {
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: .25rem auto 0 auto
+}
+header nav a {
+    margin: 0;
+    padding: 0 0 .5rem 0;
+    text-align: center
+}
+header nav a[aria-current="true"] {
+    border-bottom: thick solid rgba(43,120,228,.3);
+    color: #222;
+    cursor:text;
+    text-decoration: none
+}
+
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8.33% 0 8.33%;
+  margin-bottom: 16px;
+}
+
+/* Logo and Title Styling */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  margin-left: -10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--black-default);
+}
+
+/* Top Buttons Styling */
+.top-buttons {
+  gap: 10px;
+}
+
+.btn-asias-link-outline {
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px var(--blue-default);
+  color: var(--blue-default);
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px var(--blue-hover);
+    color: var(--blue-hover);
+  }
+}
+
+.btn-asias-link {
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: var(--blue-default);
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--blue-hover);
+  }
+}
+
+/* Navigation Bar Styling */
+.navbar {
+  display: flex;
+  padding: 0 8.33% 0 8.33%;
+  background-color: var(--grey-lighter);
+  border-bottom: 2px solid var(--grey-default);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+  margin-left: -10px;
+}
+
+.nav-links a:not(.dropdown-content a) {
+  text-decoration: none;
+  color: var(--black-default);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 10px;
+  padding-bottom: 7px;
+
+  &:hover {
+    border-bottom: 4px solid var(--blue-default);
+  }
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid var(--grey-default);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 2px;
+
+  &.join {
+    width: 146px;
+  }
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--black-default);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--grey-lighter);
+}
+
+/* Show Dropdown Menu on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.current {
+  border-bottom: 4px solid var(--blue-default);
+}
+
+
+
+
+#hero {
+    display: block;
+    background: rgba(31,66,159,.8) url("/asias-aero/diag2.png") repeat;
+    height: 11rem;
+    min-height: 130px;
+    max-height: 300px;
+    position: relative;
+    text-align: center
+}
+@media all and (min-width:750px) {
+    #hero {
+        background: transparent url("/asias-aero/slice5.webp") no-repeat;
+        background-size: 115%;
+        background-position: top center;
+        padding-bottom: 6%;
+    }
+    #hero h1 {
+        font-size: 2rem
+    }
+}
+#hero h1 {
+    background-color: rgba(222,222,222,.95);
+    font-size: 1.7rem;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: .25rem 0;
+    text-transform: uppercase;
+    width: 100%
+}
+#hero h1 span { 
+    display: block;
+    font-size: 90%;
+    margin: 0 auto;
+    text-align: center;
+    width:100%
+}
+#hero h1 span:first-of-type {
+    padding-left: 0;
+}
+#hero h1 span:last-of-type {
+    padding-left: 10%;
+}
+#hero h1 strong {
+    color: rgba(43,120,228,1)
+}
+h3 {
+    font-size: 1rem
+}
+.knock-small {
+    color: #fff !important;
+    font-size: 1rem
+}
+.knock-small h2 {
+    font-size: 1rem;
+    padding: .5rem
+}
+.knock-small a {
+    color:#fff;
+    position: absolute;
+    right: 1rem;
+    top: -1rem
+}
+#members {
+    background: rgba(31,66,159,.9) url("/asias-aero/diag2.png") repeat;
+    margin: 1rem 0;
+    padding: 1rem 0 2rem 0
+}
+@media all and (min-width:34rem) {  
+    #members h2 {
+        display: inline-block;
+        margin: -1rem 1rem 0 1rem;
+        padding-top: 0
+    }
+}
+ul#members_callout {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+ul#members_callout li {
+    background: #fff;
+    border: thin solid #ccc;
+    /* box-shadow: 3px 3px 0 #ddd; */
+    display: flex;
+    font-size: .9rem;
+    margin: .5rem 1rem;
+    padding: .5rem .1rem .3rem .1rem;
+    position: relative;
+    transform: skew(-7deg);
+    vertical-align: bottom
+}
+ul#members_callout li img {
+    height: 30px;
+    width: 35px;
+    margin-top: -.5rem;
+    opacity: 40%;
+    position: absolute;
+    bottom: .15rem;
+    right: .15rem
+}
+ul#members_callout li span {
+    display: inline;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: -.5rem;
+    padding: 0 .5rem;
+}
+
+.calloutA, #inthenews {
+    background: #fff;
+    padding: 1rem
+}
+.text, p, li {
+    display: block;
+    margin: 1rem auto;
+    max-width: 800px;
+    position: relative
+}
+.calloutA ul, #inthenews ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+.calloutA ul li strong {
+    color: #1f429f;
+    display: block;
+    font-weight: 600;
+    width: 100% !important
+}
+#inthenews ul li {
+    border: 2px solid #222;
+    border-radius: .5rem;
+    padding: .5rem
+}
+#inthenews ul li h3 {
+    text-align: center
+}
+#inthenews ul li h3 img {
+    display: block;
+    margin: 0 auto 1rem auto;
+    width:70%
+}
+#inthenews ul li p a {
+    display: block;
+    margin: 1rem 0 0 0
+}
+
+@media all and (min-width: 650px) {
+    ul#members_callout {
+        display: grid;
+        grid-template-columns: 1fr 1fr
+    }
+    .calloutA ul li {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 3fr
+    }
+    .calloutA ul li strong {
+        text-align: right;
+    }
+    #inthenews ul {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #inthenews ul li h3 {
+        text-align: center
+    }
+}
+@media all and (min-width: 900px) {
+    ul#members_callout {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+    }
+}
+
+
 
 .main-content {
   padding-left: 16.67%;
@@ -219,159 +611,6 @@ a.link-asias {
   }
 }
 
-/*-------------------- Header --------------------*/
-
-/* Header Styling */
-.header {
-  background-color: white;
-  padding-top: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.top-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 8.33% 0 8.33%;
-  margin-bottom: 16px;
-}
-
-/* Logo and Title Styling */
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.logo {
-  height: 50px;
-  width: auto;
-  margin-left: -10px;
-}
-
-.title {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--black-default);
-}
-
-/* Top Buttons Styling */
-.top-buttons {
-  gap: 10px;
-}
-
-.btn-asias-link-outline {
-  padding: 5px 10px;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: transparent;
-  box-shadow: inset 0 0 0 2px var(--blue-default);
-  color: var(--blue-default);
-  border-radius: 3px;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:hover {
-    box-shadow: inset 0 0 0 2px var(--blue-hover);
-    color: var(--blue-hover);
-  }
-}
-
-.btn-asias-link {
-  padding: 5px 10px;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: var(--blue-default);
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:hover {
-    background-color: var(--blue-hover);
-  }
-}
-
-/* Navigation Bar Styling */
-.navbar {
-  display: flex;
-  padding: 0 8.33% 0 8.33%;
-  background-color: var(--grey-lighter);
-  border-bottom: 2px solid var(--grey-default);
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 22px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 0;
-  margin-left: -10px;
-}
-
-.nav-links a:not(.dropdown-content a) {
-  text-decoration: none;
-  color: var(--black-default);
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0 10px;
-  padding-bottom: 7px;
-
-  &:hover {
-    border-bottom: 4px solid var(--blue-default);
-  }
-}
-
-/* Dropdown Menu Styling */
-.dropdown {
-  position: relative;
-}
-
-.dropbtn {
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  border: 1px solid var(--grey-default);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  margin-top: 2px;
-
-  &.join {
-    width: 146px;
-  }
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: var(--black-default);
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.dropdown-content a:hover {
-  background-color: var(--grey-lighter);
-}
-
-/* Show Dropdown Menu on Hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.current {
-  border-bottom: 4px solid var(--blue-default);
-}
 
 /*-------------------- Footer --------------------*/
 

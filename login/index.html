@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+    <link rel="icon" href="logo.webp">
+    <title>ASIAS Member Log In</title>
+    <link rel="stylesheet" type="text/css" href="/asias-aero/css/styles.css">
+  </head>
+  <body id="top">
+    <!-- start header -->
+    <header class="header">
+      <div class="top-header">
+        <a class="logo-title" href="/asias-aero/">
+          <img src="/asias-aero/logo.webp" alt="ASIAS Logo" class="logo">
+          <h1 class="title">Aviation Safety Information Analysis and Sharing</h1>
+        </a>
+        <div class="top-buttons">
+          <a href="/asias-aero/login" class="btn-asias-link-outline">Stakeholder Log In</a>
+          <a href="/asias-aero/join-asias-application-form" class="btn-asias-link">Join ASIAS</a>
+        </div>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="/asias-aero/">Home</a></li>
+          <li class="dropdown">
+            <a href="/asias-aero/about-mission" class="dropbtn">About</a>
+            <div class="dropdown-content">
+              <a href="/asias-aero/about-mission">Mission</a>
+              <a href="/asias-aero/about-stakeholders">Stakeholders</a>
+              <a href="/asias-aero/about-history">History</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/asias-aero/join-asias" class="dropbtn">Join ASIAS</a>
+            <div class="dropdown-content join">
+              <a href="/asias-aero/join-asias">Why Join ASIAS</a>
+              <a href="/asias-aero/join-asias-application-form">Application Form</a>
+            </div>
+          </li>
+          <li><a href="/asias-aero/news-and-insights">News & Insights</a></li>
+          <li><a href="/asias-aero/contact-asias">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- end header -->
+    <main>
+      <div class="page-banner">
+        <img src="slice5.webp" alt="ASIAS Banner"/>
+        <div class="page-title">
+          <h1>Stakeholder Log In</h1>
+        </div>
+      </div>
+      <div class="main-content">
+        <div id="text">
+          <p>
+            <strong>Log in using your ASIAS stakeholder credentials.</strong>
+          </p>
+          <p>
+            If your organization is a stakeholder and you need access, please reach out to your organization's existing ASIAS contact.
+          </p>
+          <p>
+            If your organization is not an ASIAS stakeholder, learn how to join at <a class="link-asias" href="/asias-aero/join-asias">Join ASIAS.</a>
+          </p>
+        </div>
+      </div>
+      <!-- start form -->
+      <form id="login">
+        <fieldset>
+          <div>
+            <label for="username">Username</label><br>
+            <input type="text" required="true" id="username" name="username">
+          </div>
+          <div id="password-field">
+            <label for="password">Password</label><br>
+            <input type="password" required="true" id="password" name="password">
+            <div class="show-password">
+              <button class="btn-link" type="button" id="pw-btn" onClick="togglePassword()">Show password</button>
+            </div>
+          </div>
+          <button class="btn-asias" type="submit" onClick="sendData()">Sign in</button>
+        </fieldset>
+        <a class="link-asias" href="#">Forgot username or password?</a>
+      </form>
+      <!-- end form -->
+    </main>
+
+    <script>
+      const password = document.querySelector("#password");
+      const passwordButton = document.querySelector("#pw-btn");
+
+      function togglePassword() {
+        if (password.getAttribute("type") === 'password') {
+          password.setAttribute("type", "text");
+          passwordButton.innerHTML = "Hide password";
+        } else {
+          password.setAttribute("type", "password");
+          passwordButton.innerHTML = "Show password";
+        }
+      }
+
+      // const form = document.querySelector("#login");
+
+      // async function sendData() {
+      //   if (!form.checkValidity()) {
+      //     return;
+      //   }
+      //   // Associate the FormData object with the form element
+      //   let formData = new FormData(form);
+
+      //   let object = {};
+      //   formData.forEach((value, key) => object[key] = value);
+      //   formData = JSON.stringify(object);
+
+      //   let headers = { 'content-type': 'application/json' }; // this needs the BEARER token to talk to Slate backend
+
+      //   try {
+      //     const response = await fetch("/api/login", {
+      //       method: "POST",
+      //       headers: headers,
+      //       body: formData,
+      //     });
+
+      //     let responseText = await response.json();
+      //     const pageText = document.querySelector("#text");
+      //     pageText.textContent = responseText.response;
+      //     form.setAttribute('hidden', 'true');
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      // }
+    </script>
+
+    <!-- start footer -->
+    <div class="return-to-top">
+      <a href="#top" class="link-asias">Return to top</a>
+    </div>
+    <footer>
+      <div class="footer-top">
+        <a href="/asias-aero/" class="footer-link">Home</a>
+        <a href="/asias-aero/about-mission" class="footer-link">About</a>
+        <a href="/asias-aero/join-asias" class="footer-link">Join ASIAS</a>
+        <a href="/asias-aero/news-and-insights" class="footer-link">News & Insights</a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <img src="/asias-aero/logo.webp" alt="ASIAS Logo" class="footer-logo">
+          <p>
+            © 2025 The MITRE Corporation. All Rights Reserved.<br>
+            Approved for Public Release, case 25-1353.<br>
+            For more information, <a href="/asias-aero/terms">click here.</a>
+          </p>
+        </div>
+        <div class="footer-right">
+          <a href="/asias-aero/login" class="btn-asias-link-outline">Stakeholder Log In</a>
+          <a href="/asias-aero/join-asias-application-form" class="btn-asias-link">Join ASIAS</a>
+          <a href="/asias-aero/contact-asias">Contact Us</a>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+  </body>
+</html>
