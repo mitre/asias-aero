@@ -2,6 +2,7 @@
 :root {
   --black-default: #1b1b1b;
   --blue-default: #005ea2;
+  --asias-blue: rgba(43,120,228,1);
   --blue-hover: #1a4480;
   --blue-focus: #2491ff;
   --grey-default: #dddddd;
@@ -151,7 +152,7 @@ header nav a[aria-current="true"] {
 
 /* Navigation Bar Styling */
 .navbar {
-  display: flex;
+  display: block;
   padding: 0 8.33% 0 8.33%;
   background-color: var(--grey-lighter);
   border-bottom: 2px solid var(--grey-default);
@@ -275,7 +276,7 @@ header nav a[aria-current="true"] {
     padding-left: 10%;
 }
 #hero h1 strong {
-    color: rgba(43,120,228,1)
+    color: var(--asias-blue);
 }
 h3 {
     font-size: 1rem
@@ -286,7 +287,7 @@ h3 {
 }
 .knock-small h2 {
     font-size: 1rem;
-    padding: .5rem
+    padding: 1rem .5rem .5rem .5rem;
 }
 .knock-small a {
     color:#fff;
@@ -344,12 +345,34 @@ ul#members_callout li span {
     background: #fff;
     padding: 1rem
 }
-.text, p, li {
+.text, p {
     display: block;
     margin: 1rem auto;
     max-width: 800px;
     position: relative
 }
+.inline-flex {
+  height: 50px;
+  display: inline-flex;
+}
+.heading {
+  text-transform: uppercase;
+}
+
+.subheading {
+  font-style: italic;
+  text-transform: uppercase;
+  text-decoration: underline;
+
+}
+
+.container {
+  display: flex;
+  margin: 1rem auto;
+  max-width: 800px;
+  position: relative
+}
+
 .calloutA ul, #inthenews ul {
     list-style: none;
     margin: 0;
@@ -675,7 +698,38 @@ footer {
 .footer-right {
   display: flex;
   flex-direction: column; /* Stack items vertically */
-  justify-content: space-between; /* Distribute even space between items */
+  justify-content: normal; /* space-between;  Distribute even space between items */
   height: 100px; /* This must be the same as the .footer-logo height */
   align-items: center;
+}
+
+.flex-item {
+  margin: .5rem;
+}
+
+.bullet-right  {
+  text-align: right;
+}
+
+.usa-sidenav {
+  margin: 1rem;
+  padding: 1rem;
+  list-style-type: none;
+  font-family: sans-serif;
+  font-size: 1.06rem;
+  line-height: 1.3;
+  border-bottom: 1px solid #e6e6e6;
+  color: var(--blue-default);
+}
+
+.usa-sidenav-item {
+  border-top: 1px solid #e6e6e6;
+  color: var(--blue-default);
+}
+
+.usa-sidenav .usa-current {
+  position: relative;
+  color: var(--blue-focus);
+  font-weight: 700;
+  border-left: 1px solid var(--blue-focus);
 }
