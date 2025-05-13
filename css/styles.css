@@ -84,6 +84,190 @@ header nav a[aria-current="true"] {
     text-decoration: none
 }
 
+form#login {
+  padding-left: 16.67%;
+  padding-right: 66.67%;
+  margin-top: 30px;
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 5px 0;
+  }
+
+  #password-field {
+    margin: 10px 0 15px 0;
+  }
+
+  .show-password {
+    text-align: right;
+  }
+
+  a {
+    font-size: 13px;
+  }
+}
+
+form.contact-us {
+  padding-left: 16.67%;
+  padding-right: 33.33%;
+  margin-top: 40px;
+
+  .name-fields {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #first-name-field, #last-name-field {
+    width: 45%;
+  }
+
+  input#email {
+    width: 70%;
+  }
+
+  textarea {
+    width: 100%;
+    appearance: none;
+    margin-top: 5px;
+    font-size: 16px;
+    height: 200px;
+    border: 2px solid var(--black-default);
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+    &:focus {
+      outline: 3px solid var(--blue-focus);
+    }
+
+    /* &:invalid {
+      border: 2px dashed red;
+    } */
+  }
+
+  .counter {
+    font-size: 14px;
+    color: #757575;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0 0 0 1px;
+    margin: 30px 0 22px 0;
+
+    legend {
+      margin-bottom: 8px;
+      padding: 0;
+    }
+  
+    .option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+  
+    input {
+      margin-left: 0;
+    }
+
+    label {
+      display: inline;
+      cursor: pointer;
+    }
+  }
+  
+  input[type="checkbox"] {
+    appearance: none;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--black-default);
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:checked {
+      background-color: var(--blue-default);
+      border-color: var(--blue-default);
+    }
+
+    &:checked::before {
+      content: "\2714"; /* Unicode checkmark */
+      color: white;
+      font-size: 15px;
+      padding-left: 2px;
+    }
+  }
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  appearance: none;
+  margin-top: 5px;
+  font-size: 16px;
+  height: 40px;
+  border: 2px solid var(--black-default);
+  padding: 8px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 3px solid var(--blue-focus);
+  }
+
+  /* &:invalid {
+    border: 2px dashed red;
+  } */
+}
+
+.btn-asias {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--blue-default);
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: var(--blue-hover);
+  }
+}
+
+a.link-asias {
+  color: var(--blue-default);
+
+  &:hover {
+    color: var(--blue-hover);
+  }
+}
+
+.btn-link {
+  border: none;
+  background: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--blue-default);
+
+  &:hover {
+    color: var(--blue-hover);
+  }
+}
+
+/*-------------------- Header --------------------*/
+
+/* Header Styling */
+.header {
+  background-color: white;
+  padding-top: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
 
 .top-header {
   display: flex;
@@ -355,15 +539,10 @@ ul#members_callout li span {
   height: 50px;
   display: inline-flex;
 }
-.heading {
-  text-transform: uppercase;
-}
 
 .subheading {
-  font-style: italic;
-  text-transform: uppercase;
-  text-decoration: underline;
-
+  font-weight: bold;
+  font-size: larger;
 }
 
 .container {
@@ -723,13 +902,39 @@ footer {
 }
 
 .usa-sidenav-item {
+  padding: .5rem;
   border-top: 1px solid #e6e6e6;
   color: var(--blue-default);
 }
 
-.usa-sidenav .usa-current {
-  position: relative;
-  color: var(--blue-focus);
+.usa-sidenav-item:hover {
+  background: var(--grey-lighter);
+}
+
+.usa-sidenav-current-item:hover {
+  background: var(--grey-lighter);
+}
+
+.usa-sidenav-current-item {
+  padding: .5rem;
+  border-top: 1px solid #e6e6e6;
   font-weight: 700;
-  border-left: 1px solid var(--blue-focus);
+  color: var(--blue-focus);
+  border-left: 2px solid var(--blue-focus);
+}
+
+.sidenav-link {
+  color: var(--blue-default);
+  text-decoration: none;
+}
+
+.rounded {
+  border-radius: 40px;
+  background-color: orange;
+  padding: 1rem 1.5rem 1rem 1.5rem; 
+}
+
+p, li {
+  line-height: 1.25;
+  margin-bottom: .5rem;
 }
